@@ -26,10 +26,10 @@ const StyledForm = styled.form`
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
-    const idRef = React.createRef();
-    const nameRef = React.createRef();
-    const ageRef = React.createRef();
-    const heightRef = React.createRef();
+    this.idRef = React.createRef();
+    this.nameRef = React.createRef();
+    this.ageRef = React.createRef();
+    this.heightRef = React.createRef();
   }
 
   
@@ -43,10 +43,10 @@ class SmurfForm extends Component {
             height: this.heightRef.current.value
           }
           if (this.idRef.current.value === ''){
-            props.add(newSmurf);
+            this.props.add(newSmurf);
           } else {
             let id = this.idRef.current.value;
-            props.update(id, newSmurf);
+            this.props.update(id, newSmurf);
           }
         }}>
         <input
