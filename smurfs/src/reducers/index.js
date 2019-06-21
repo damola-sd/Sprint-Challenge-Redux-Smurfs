@@ -1,4 +1,5 @@
 import { ERROR, GET_SMURFS, ADD_SMURF, DELETE_SMURF, UPDATE_SMURF } from '../actions';
+import { combineReducers } from 'redux';
 /*
   Be sure to import in all of the action types from `../actions`
 */
@@ -19,7 +20,7 @@ const initialState =  {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
-export default smurfReducer = (state = initialState, action) => {
+const smurfReducer = (state = initialState, action) => {
   switch(action.type) {
     case GET_SMURFS:
       return {
@@ -59,3 +60,7 @@ export default smurfReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+export default combineReducers({
+  smurfReducer
+});
