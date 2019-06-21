@@ -3,7 +3,7 @@ import './App.css';
 import Smurfs from './Smurfs';
 import SmurfForm from './SmurfForm';
 import { connect } from "react-redux";
-import { getSmurfs, deleteSmurf } from '../actions'
+import { getSmurfs, deleteSmurf, addSmurf, updateSmurf } from '../actions'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -20,8 +20,8 @@ class App extends Component {
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <div>Welcome to your Redux version of Smurfs!</div>
-        <Smurfs smurfs = {this.props.smurfs}/>
-        <SmurfForm />
+        <Smurfs smurfs = {this.props.smurfs} delete = {this.props.deleteSmurf}/>
+        <SmurfForm update = {this.props.updateSmurf} add = {this.props.addSmurf} />
       </div>
     );
   }
@@ -37,6 +37,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurfs }
+  { getSmurfs, deleteSmurf, addSmurf, updateSmurf }
 )(App);
 

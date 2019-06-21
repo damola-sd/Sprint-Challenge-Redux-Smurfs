@@ -24,23 +24,49 @@ const StyledForm = styled.form`
 `;
 
 class SmurfForm extends Component {
-  
+  constructor(props) {
+    super(props);
+    const idRef = React.createRef();
+    const nameRef = React.createRef();
+    const ageRef = React.createRef();
+    const heightRef = React.createRef();
+  }
 
   
   render() {
     return (
       <div className="SmurfForm">
-        <StyledForm onSubmit={this.addSmurf}>
+        <StyledForm onSubmit={() => {
+          let newSmurf = {
+            name: this.nameRef.current.value,
+            age: this.ageRef.current.value,
+            height: this.heightRef.current.value
+          }
+          if (this.idRef.current.value === ''){
+            props.add(newSmurf);
+          } else {
+            let id = this.idRef.current.value;
+            props.update(id, newSmurf);
+          }
+        }}>
+        <input
+            ref ={this.idRef}
+            placeholder="ID"
+            name="id"
+          />
           <input
-            placeholder="name"
+            ref ={this.nameRef}
+            placeholder="Name"
             name="name"
           />
           <input
-            placeholder="age"
+            ref = {this.ageRef}
+            placeholder="Age"
             name="age"
           />
           <input
-            placeholder="height"
+            ref = {this.heightRef}
+            placeholder="Height"
             name="height"
           />
           <button type="submit">Add to the village</button>

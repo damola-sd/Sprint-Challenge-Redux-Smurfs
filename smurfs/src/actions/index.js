@@ -83,6 +83,7 @@ export const deleteSmurf = id => dispatch => {
       });
     })
     .catch(err => {
+      console.log(err.message);
       dispatch({
         type: ERROR,
         payload: err.message
