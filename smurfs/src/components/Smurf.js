@@ -4,11 +4,12 @@ import styled from 'styled-components';
 const SmurfDiv = styled.div`
   width: 400px;
   margin: 0 auto;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border: 2px inset black;
   border-radius: 10px;
   padding: 20px;
   background-color: goldenrod;
+  box-shadow: 3px 8px gray;
   /* flex-direction: column;
   justify-content: space-around;
   flex-wrap: 2; */

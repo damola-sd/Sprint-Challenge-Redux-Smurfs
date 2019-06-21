@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
-// import smurfServer from '../App';
 import styled from 'styled-components';
 
 
-const smurfServer = 'http://localhost:3333/smurfs';
+
 
 const StyledForm = styled.form`
   input {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    background-color: lightseagreen;
+    color: black;
 
   }
 
